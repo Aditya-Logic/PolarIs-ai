@@ -2,8 +2,6 @@
 
 PolarIs AI is a predictive, optimization-driven, resilient energy-management platform for polar research stations (Maitri, Bharati, and Maitri II). It forecasts load and renewable generation from NASA POWER and Open-Meteo data, computes an optimal microgrid dispatch schedule (MILP) minimizing diesel consumption and battery degradation, detects operational anomalies, and triggers an automated "Polar Survival Mode" during extreme blizzards and polar-night conditions.
 
-The user experience is an exact 100% faithful replication of **Google DeepMind WeatherLab** (`deepmind.google.com/science/weatherlab`) — combining Material Design 3 tokens, glassmorphic floating surfaces, buttery-smooth 60fps animations, an interactive Antarctic storm/irradiance canvas, animated power-flow network diagram, station forecast matrix, timeline scrubber, and 3D globe preview.
-
 ---
 
 ## 1. System Architecture

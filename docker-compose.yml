@@ -1,0 +1,79 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: polaris-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      # Not consumed yet — API routes still use mock data (lib/seed-data.ts).
+      # Kept here so the values are ready when you wire the proxy up.
+      - FORECAST_SERVICE_URL=http://forecast-service:8001
+      - OPTIMIZER_SERVICE_URL=http://optimizer-service:8002
+      - TELEMETRY_SERVICE_URL=http://telemetry-service:8003
+      - ANOMALY_SERVICE_URL=http://anomaly-service:8004
+    depends_on:
+      - forecast-service
+      - optimizer-service
+      - telemetry-service
+      - anomaly-service
+    networks:
+      - polaris-net
+
+  forecast-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+      args:
+        SERVICE_DIR: forecast-service
+        SERVICE_PORT: 8001
+    container_name: polaris-forecast
+    ports:
+      - "8001:8001"
+    networks:
+      - polaris-net
+
+  optimizer-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+      args:
+        SERVICE_DIR: optimizer-service
+        SERVICE_PORT: 8002
+    container_name: polaris-optimizer
+    ports:
+      - "8002:8002"
+    networks:
+      - polaris-net
+
+  telemetry-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+      args:
+        SERVICE_DIR: telemetry-service
+        SERVICE_PORT: 8003
+    container_name: polaris-telemetry
+    ports:
+      - "8003:8003"
+    networks:
+      - polaris-net
+
+  anomaly-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+      args:
+        SERVICE_DIR: anomaly-service
+        SERVICE_PORT: 8004
+    container_name: polaris-anomaly
+    ports:
+      - "8004:8004"
+    networks:
+      - polaris-net
+
+networks:
+  polaris-net:
+    driver: bridge

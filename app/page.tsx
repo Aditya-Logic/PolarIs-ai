@@ -59,8 +59,8 @@ export default function PolarEnergyDashboard() {
             activeView === "radar-map"
               ? "station-map"
               : activeView === "station-map"
-              ? "power-flow-diagram"
-              : "radar-map"
+                ? "power-flow-diagram"
+                : "radar-map"
           );
           break;
         case "Escape":
