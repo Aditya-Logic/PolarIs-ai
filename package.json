@@ -34,8 +34,25 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "autoprefixer": "^10.4.20",
+    "node": "^20.20.2",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
-  }
+  },
+  "description": "> A predictive, optimization-driven, resilient microgrid energy management platform purpose-built for Antarctic research stations and extreme environments.",
+  "main": "next.config.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessionalPallav20014/PolarIs-ai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProfessionalPallav20014/PolarIs-ai/issues"
+  },
+  "homepage": "https://github.com/ProfessionalPallav20014/PolarIs-ai#readme"
 }
